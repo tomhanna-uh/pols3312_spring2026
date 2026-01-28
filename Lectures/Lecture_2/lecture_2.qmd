@@ -1,0 +1,144 @@
+---
+title: |
+    | Lecture 2 - Reading a Scientific Article
+    | Argument, Data, and Politics: POLS 3312
+date: January 28, 2027
+author: "Tom Hanna"
+format: 
+        html:
+                theme: cosmo
+                style: custom.css
+                axe: true
+                self-contained: true
+                code-fold: false
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2024, Instructor: Tom Hanna"
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                theme: [default, custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2024, Instructor: Tom Hanna"
+        typst:
+                pdf-standard: ua-1  # PDF/UA-1 compliance
+                axe: true
+editor: source
+---
+
+## Reading a Scientific Article
+
+- What is a scientific article?
+
+- How do you read a scientific article?
+
+- Activity
+
+- Discussion of article
+
+## What is a scientific article on politics?
+
+- A scientific article on politics is a report of original research 
+- It is published in a peer-reviewed journal
+
+        - Peer review is not replication
+        - Peer review is intended to ensure that the research is sound, the article is well-written, and that it contributes in an interesting way to the progress of the discipline
+        - Peer review is sometimes biased, but double blind and multiple reviewers are the standard to minimize bias
+
+- It is written by a political scientist for other political scientists
+
+        - This does not mean it was written by someone with an advanced degree in political science
+        - Peer review is blind to credentials
+        
+
+## How do you read a scientific article?
+
+- Read the abstract
+- Read the conclusion
+- Read the introduction
+- Read the literature review selectively
+- Read the theory
+- Read the research design
+- Read the results
+- Read the conclusion again
+
+## What are you looking for?
+
+- What is the research question? The puzzle
+- What is the contribution to the literature?
+- what is the theory?
+- What is the research design?
+- What are the main findings?
+
+
+## Research question
+
+- What is the puzzle?
+- what is the outcome the author is trying to explain? (dependent variable, DV, Y variable)
+- This should be early in the abstract and the introduction
+
+## What is the contribution to the literature?
+
+- What is the current state of the literature? 
+- What does the author take as settled?
+- What is the current debate this is intended to address?
+- Does the author offer a new theory, new data, or a new method?
+
+## What is the theory?
+
+- What are the dependent variables (DVs, Y variables)?
+- What are the independent variables (IVs, X variables)?
+- What are the testable, falsifiable hypotheses?
+- Are there any mediating or moderating variables? Any conditions?
+
+## What is the research design?
+
+- What is the unit of analysis?
+- What is the scope? (Time, geogrpahy, population of interest, etc.)
+- What is the method of data collection?
+- What is the method of data analysis?
+        
+## Results
+
+- What are the main results?
+- What are the main tables and figures? 
+- Significance and effect sizes
+- Is the theory confirmed or disconfirmed?
+        
+## Conclusion and discussion
+
+- What are the main findings? What is unresolved?
+- What are the implications for the literature?
+- What are the implications for policy?
+- What are the implications for future research?
+
+
+
+## Scavenger Hunt Activity
+
+![Scavenger Hunt](scavenger_hunt.png){fig-alt="scavenger hunt form for academic article reading activity"}
+
+
+
+## Authorship, License, Credits
+
+- Author: Tom Hanna
+
+- Website: <a href="https://tom-hanna.org/">tomhanna.me</a>
+
+- License: This work is licensed under a <a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</>
+
+<a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">![Creative Commons License](creative_commons_license.png){fig-alt="Creative Commons Attribution-NonCommercial-ShareAlike badge"}</a>
+
+
+
+
+
+
+
+
+
+
+
+
