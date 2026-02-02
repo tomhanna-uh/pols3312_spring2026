@@ -1,0 +1,176 @@
+---
+title: |
+    | Lecture 3 - The Logic of Research Design
+    | Argument, Data, and Politics: POLS 3312
+date: January 31, 2027
+author: "Tom Hanna"
+format: 
+        html:
+                theme: cosmo
+                style: custom.css
+                axe: true
+                self-contained: true
+                code-fold: false
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                incremental: true
+                theme: [default, custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        typst:
+                pdf-standard: ua-1  # PDF/UA-1 compliance
+                axe: true
+editor: source
+---
+
+# 1. Introduction: The Strategic Importance of Research Architecture
+**Objective:** Retrain cognitive processes from passive observation to active construction of logical research.
+
+## Defining Formal Scientific Research
+1.  **Distinction:** Differs from "lay" research (browsing/searching) by requiring strict adherence to the scientific method and contribution to a body of science.
+2.  **The Two Pillars of Scientific Knowledge:**
+    * **Logic (Theory):** The theoretical plane. Systematic explanation of *why* phenomena occur.
+    * **Evidence (Observations):** The empirical plane. Validation, refinement, or construction of theories based on reality.
+3.  **Interdependence:** Observations without theory are facts without a framework; theory without evidence is speculation.
+
+# 2. The Theoretical Plane: Thinking Like a Researcher
+**Core Skill:** Reification -- Regarding abstract mental constructs as real, measurable entities.
+
+## Building Blocks of Inquiry
+1.  **Concepts (General/Theoretical):** Generalizable properties (e.g., "attitude").
+2.  **Constructs (High/Theoretical):** Abstract concepts specifically created to explain a phenomenon.
+3.  **Variables (Low/Empirical):** Measurable representations (proxies) used to test abstract ideas.
+
+## The Transformation of Propositions into Hypotheses
+1.  **Propositions:** Declarative statements of relationships between abstract constructs (cannot be tested directly).
+2.  **Hypotheses:** Empirical formulations linking specific variables; must specify directionality and causality.
+
+
+# 3. The Logic of Inquiry: Induction, Deduction, and the Research Cycle
+**Process:** A continuous, helical process iterating between theory and observation.
+
+## Reasoning Methods
+1.  **Inductive Research:** Inferring theoretical patterns from observed data (theory-building).
+2.  **Deductive Research:** Testing known theoretical patterns using new empirical data (theory-testing).
+
+## Whetten’s Four Building Blocks of Theory
+1.  **Constructs (The What):** Identifying essential concepts.
+2.  **Propositions (The How):** Stating structural relationships.
+3.  **Logic (The Why):** Justifying the propositions (avoiding ad hoc correlations).
+4.  **Boundary Conditions (The Who, When, Where):** Defining limits of generalizability. (cf. **Scope Conditions**)
+
+## Evaluating Theory (The Scientific Method Checklist)
+1. **Parsimony:** Does it use the fewest variables possible (Logical Economy)?
+2. **Falsifiability:** Can the theory be disproven?
+3. **Precision:** Are concepts clearly defined for measurement?
+4. **Replicability:** Can independent researchers repeat the study?
+
+
+# 4. Seminar Application: Deconstructing Colgan (2017)
+**Focus:** Internal logic (IV, DV, Hypothesis) rather than normative debate.
+
+
+## What is the Unit of Analysis?
+
+1.  **Target:** The Syllabus.
+2.  **Aggregation:** Collecting data at the syllabus level to aggregate to the professor level.
+
+## Structural Deconstruction 
+
+1. What is the **Independent Variable (IV):**?
+
+- Instructor Gender (Operationalized as binary)
+        
+2.  What is the **Dependent Variable (DV):** 
+
+- Citation Diversity (Operationalized as an Index/Scale).
+
+3.  What is the **Central Hypothesis:** 
+
+- "The gender of the instructor (IV) has a positive effect on the gender-balance of citations (DV)."
+
+
+# 5. Discussion: Operationalization and Validity Challenges
+
+## Operationalization
+1.  The rigorous process of developing specific indicators for abstract constructs (e.g., measuring "Gender Bias").
+
+- What is Colgan's approach?
+
+## Threats to Validity (Three Conditions of Causality)
+1.  **Covariation:** Cause and effect must correlate.
+2.  **Temporal Precedence:** Cause must precede effect. 
+3.  **No Plausible Alternative Explanation:** Ruling out spurious correlations such as?
+
+- sub-field influence
+
+## Analytical Provocations
+**Parsimony:** Does the study ignore simpler explanations. What might they be?
+
+- historical IR canon is male dominated
+
+        - but then why the gender difference in syllabi
+        - is the effect male bias or female instructors correcting for historical imbalance? 
+
+- institutional factors (e.g., department culture)
+
+        - a different form of bias?
+        - hiring and promotion bias?
+
+## Analytical Provocations 2
+
+**Reliability:** Would different researchers code the data identically (Inter-rater reliability)?
+
+- Imagine you are a Research Assistant coding 'Author Gender' for this study. You encounter citations for 'J. Smith,' 'Alex Morgan,' or names from cultures with naming conventions you are unfamiliar with. If you have to 'guess' the gender, you introduce measurement error. If we cannot achieve 100% agreement between two coders on who is 'male' or 'female,' does this invalidate the entire dependent variable? How would you design a coding protocol to handle these ambiguities without discarding data?
+
+
+## Analytical Provocations 3
+
+**Internal Validity:** The text suggests that 'inheriting' a syllabus violates temporal precedence. In many departments, the 'Intro to IR' syllabus is standardized by a committee. If a female adjunct is hired to teach a course designed by a male committee three years ago, her gender had zero influence on the citations. If the study does not control for 'Syllabus Autonomy' (who actually wrote it), are we seeing a spurious correlation? How would you redesign the survey to ensure the instructor actually created the document?
+
+
+## Analytical Provocations 4
+
+**Generalizability (External Validity):** Do findings apply to other contexts (e.g., undergraduate vs. graduate)? 
+
+Colgan’s study specifically examines graduate-level IR syllabi. Graduate students are training for comprehensive exams, which forces instructors to include specific 'foundational' texts (often older, often male). Would you expect the same hypothesis to hold true in a course on 'Political Terrorism,' (like Dr. Bagashka's excellent course here) where she has total freedom to choose the readings and they are likely more contemporary? 
+
+
+
+
+
+# 6. Conclusion
+* Mastery of research architecture transforms the scholar from a kay consumer of information to a critical scientific evaluator.
+* This is valuable in professional roles in policy, law, consulting, and academic research.
+
+
+
+
+
+## Authorship, License, Credits
+
+- Author: Tom Hanna
+
+- Website: <a href="https://tom-hanna.org/">tomhanna.me</a>
+
+- License: This work is licensed under a <a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</>
+
+<a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">![Creative Commons License](creative_commons_license.png){fig-alt="Creative Commons Attribution-NonCommercial-ShareAlike badge"}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+

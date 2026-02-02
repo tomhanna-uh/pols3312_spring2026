@@ -1,0 +1,279 @@
+---
+title: |
+    | Lecture 4 - Measurement Concepts, Validity, Reliability
+    | Argument, Data, and Politics: POLS 3312
+date: February 5, 2026
+author: "Tom Hanna"
+format: 
+        html:
+                theme: cosmo
+                style: custom.css
+                axe: true
+                self-contained: true
+                code-fold: false
+                logo: logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                incremental: true
+                theme: [default, custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        typst:
+                pdf-standard: ua-1  # PDF/UA-1 compliance
+                axe: true
+editor: source
+---
+
+
+# Measurement, Validity, and Reliability in Political Inquiry
+
+## The Strategic Imperative of Measurement
+
+* **The Harsh Truth**
+    * Political arguments only as robust as supporting data.
+    * Measurement = Strategic bridge between "Theoretical Plane" (ideas) and "Empirical Plane" (reality).
+    * Without measurement, political science reduces to philosophy.
+    
+    
+## From Theory to Observation: The "So What?"
+
+* **Defining the Battlefield:** Moves theory into the realm of falsifiability; unmeasurable theories are unscientific.
+
+* **Rejection of Subjectivity:** Shifts from personal "conceptions" to "inter-subjective" agreement (e.g., agreeing on visible indicators of Democracy).
+
+* **Precision and Replicability:** Standardization allows independent verification across time and space.
+
+* *Goal:* Mastery of mental discipline before application of statistical tools.
+
+## From "Fuzzy" Ideas to Concrete Constructs
+
+* **The "Original Sin" of Research**
+
+    * Failure to define terms (e.g., Democracy, Power) leading to ambiguity.
+
+    * **Conceptualization:** Defining abstract/fuzzy ideas in precise terms.
+    
+## The "Scientific Lie": Making Abstractions Concrete
+
+* **Reification**
+
+        * Treating mental abstractions (constructs) as if they were real, tangible objects.
+   
+         * A "scientific lie" necessary for measurement.
+         
+* *The Risk:* Flawed conceptualization leads to studying illusions.
+    
+## The Anatomy of a Construct
+
+* **Unidimensional:** Single underlying scale (e.g., Weight). 
+
+        *Risk:* Oversimplification (e.g., treating Self-Esteem as single-faceted).
+
+* **Multidimensional:** Multiple underlying dimensions (e.g., Academic Aptitude = Math + Verbal). 
+
+        *Risk:* Measurement error if dimensions are ignored.
+     
+## Operationalization and Measurement Scales
+
+* **Operationalization:** The blueprint for data collection; dictates statistical handling.
+
+## The Four Levels of Measurement
+
+* **Nominal (Categorical):** Mutually exclusive labels; no order. (e.g., Regime Type). *Stats:* Mode, Chi-square.
+
+* **Ordinal:** Rank-ordered; unknown distance between ranks. (e.g., Political Activism). *Stats:* Median, Percentiles.
+
+* **Interval:** Rank-ordered + equidistant; arbitrary zero. (e.g., IQ Scores). *Stats:* Correlation, Regression (often applied to Likert).
+
+* **Ratio:** Interval qualities + true zero. (e.g., Military Spending). *Stats:* All permissible.
+
+## Measurement Strategies for Constructs
+
+* * **Scale Strategy for surveys**
+
+* **Likert Scales:** Intensity of agreement; technically ordinal but often treated as interval for regression.
+
+* **Guttman Scales:** Cumulative intensity; hierarchy of engagement (High intensity agreement implies low intensity agreement).
+
+## Examples: Likert Scale Question
+
+* "To what extent do you agree with the following statement: 'Democracy is the best form of government.'"
+
+    * Strongly Disagree
+    * Disagree
+    * Neutral
+    * Agree
+    * Strongly Agree
+
+
+## Example: Guttman Scale Questions
+
+* "Have you ever participated in the following political activities?"
+
+    1. Voted in a general election
+    2. Voted in a primary election
+    3. Signed a petition
+    4. Attended a political rally
+    5. Volunteered for a campaign
+    6. Donated money to a political cause
+    7. Run for public office
+
+## 4. The Yardsticks of Scientific Rigor
+
+* **Standardization:** The defense against biased observation.
+
+* **The Shooting Target Analogy**
+
+    * **Reliability (Consistency):** Hitting the same spot repeatedly (even if off-center).
+    * **Validity (Accuracy):** Hitting the bullseye; measuring what is claimed.
+
+## Evaluating Validity (The Pillars)
+
+* **Internal Validity:** Establishing causality vs. spurious correlations.
+
+* **External Validity:** Generalizability to broader populations 
+
+* **Construct Validity:** Ensuring the tool measures the actual concept 
+
+* **Statistical Conclusion Validity:** Appropriate use of mathematical tests for the data type
+
+
+# Application & Discussion: Kahan & Corbin (2016)
+
+## The Anatomy of the Study: Variables & Hypotheses
+
+* **The Baseline Check**
+    * What is the **Dependent Variable (DV)** in this study? (What is being explained?)
+    * What is the **Independent Variable (IV)**? (What is doing the explaining?)
+    * *Hint:* Look at the title. "Actively Open-Minded Thinking" (AOT) vs. "Polarization."
+
+
+## The Theory vs. The Hypothesis
+
+* **Theory:** What does the literature suggest *should* happen when people think more critically?
+
+    * **Hypothesis:** If AOT measures "neutrality," what should the slope look like?
+    
+    * **The Result:** What actually happened? (The "Perverse Effect").
+     
+
+## Critiquing the Construct: Measuring "Open-Mindedness"
+
+* **Conceptualization Challenge**
+    * How do you measure a thought process?
+    * Kahan & Corbin use the "Actively Open-Minded Thinking" (AOT) scale.
+    * *Class Discussion:* Is this scale measuring a *willingness* to change one's mind, or a *capacity* to argue better?
+    
+* **Validity Check**
+    * **Face Validity:** Do the questions ostensibly look like they measure open-mindedness?
+    * **Construct Validity:** If AOT correlates with *higher* polarization, is the measure invalid?
+    
+## Thought Question
+
+* *Provocation:* If a thermometer showed water freezing at 100°C, would you blame the water or the thermometer? (Apply this logic to the AOT scale).
+
+
+## Operationalizing "Polarization"
+
+* **Defining the Term**
+    * Is "Polarization" a behavior (shouting/protesting) or a mental state (belief divergence)?
+    
+* How do the authors measure polarization?
+
+## Measurement Strategy
+
+* * The authors measure polarization via "Climate Change Risk Perception."
+    
+    * *Critique:* Is "Risk Perception" a valid proxy for "Political Polarization"? Why or why not?
+    
+    * *Alternative Measures:* How else could we measure polarization?
+        * Voting records? (Nominal)
+        * Affective Thermometer ratings of the other party? (Interval/Ratio)
+    
+
+## The Validity Paradox: Instrumental vs. Intrinsic
+* **The "So What?" for Political Science**
+    * The study shows that high AOT scores + Partisanship = *Maximum* Polarization.
+* **Re-evaluating the Construct**
+    * Does this mean the AOT scale has **Low Validity** (it failed to predict open-mindedness)?
+    * OR... does it mean our **Theory** of open-mindedness was wrong?
+
+
+## Discussion
+
+* What else could AOT be measuring besides open mindedness?
+
+* **Cognitive Sophistication:** the ammunition used to defend the tribe, not a willingness to abandon it
+* **Motivated Reasoning:** Ability to rationalize pre-existing beliefs more effectively
+
+
+
+## Internal Validity Threat
+
+* **Spurious Correlation Risk**
+    * Could a "Third Variable" be driving these results? (e.g., Education, Income, Media Consumption).
+
+## Transferring the Logic: Measuring "Democracy"
+* **From Micro (Individuals) to Macro (Regimes)**
+    * If measuring "Open-Mindedness" is this hard, how do we measure "Democracy"?
+    
+    
+## Conceptualization Exercise
+
+* **Binary Strategy:** Is Democracy a switch? (Democracy vs. Autocracy).
+
+* **Continuous Strategy:** Is Democracy a spectrum? (Polity IV score -10 to +10).
+
+* **Operationalization Trade-offs**
+    * If you include "Economic Equality" in your measure of Democracy, what happens?
+    * *Risk:* You can no longer test if "Democracy causes Wealth" because you have built wealth *into* the definition of Democracy. (Tautology).
+
+
+
+
+
+
+## Wrap-Up and Final Takeaways
+
+* **Integrity of Discipline:** Relies on transparency and rigor of measurement.
+
+* **Statistical Complexity:** Cannot salvage poor conceptual design.
+
+* **The Four Pillars of Scientific Method**
+
+    * **Replicability:** Independent repetition must yield similar results.
+    * **Precision:** Exact definitions allowing universal application.
+    * **Falsifiability:** Theories must be capable of being disproven.
+    * **Parsimony (Occam’s Razor):** The simplest explanation is superior.
+    
+    
+    
+
+
+
+## Authorship, License, Credits
+
+- Author: Tom Hanna
+
+- Website: <a href="https://tom-hanna.org/">tomhanna.me</a>
+
+- License: This work is licensed under a <a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</>
+
+<a href= "http://creativecommons.org/licenses/by-nc-sa/4.0/">![Creative Commons License](creative_commons_license.png){fig-alt="Creative Commons Attribution-NonCommercial-ShareAlike badge"}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
