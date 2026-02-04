@@ -1,0 +1,45 @@
+---
+title: "Quiz 1 - February 4"
+format: html
+---
+
+## Instructions
+
+Answer the questions below. Each question is worth 1 point.
+
+## Questions
+
+1. What is the mental process of defining fuzzy and imprecise constructs (concepts) in concrete and precise terms called? A. Operationalization B. Conceptualization C. Scaling D. Reification 
+
+2. True or False: Reliability implies accuracy. 
+
+3. Which level of measurement is characterized by having a "true zero" point, where the value zero implies a non-availability of the underlying construct? A. Nominal B. Ordinal C. Interval D. Ratio 
+
+4. A scale that consistently weighs 10 pounds too heavy is (Choose all that apply):
+
+A. Reliable
+B. Valid
+C. Accurate
+D. None of these
+
+4. A rating scale that uses anchors ranging from "strongly disagree" to "strongly agree" is known as a: A. Guttman scale B. Nominal scale C. Likert scale D. Binary scale 
+
+
+5. Which type of validity assesses whether an indicator seems to be a reasonable measure of a construct "on its face"? A. Face validity B. Content validity C. Predictive validity D. Concurrent validity 
+
+
+6. True or False: A nominal scale allows researchers to rank-order data. 
+
+
+7. Which term describes the degree to which a measure is consistent or dependable? A. Validity B. Unidimensionality C. Reliability D. Calibration 
+8. If a researcher measures the same construct using the same instrument on the same sample at two different points in time to check for consistency, they are assessing: A. Inter-rater reliability B. Internal consistency reliability C. Test-retest reliability D. Split-half reliability
+
+9. True or False: In a multidimensional construct, such as academic aptitude (consisting of mathematical and verbal ability), each underlying dimension must be measured separately.
+
+10. Which of the following is NOT a characteristic of a good measurement instrument? A. Reliability B. Validity C. Complexity D. Sensitivity
+
+11. A scale whose measurement of weight varies with temperature is an example of: A. A reliable but not valid measure B. A valid but not reliable measure C. Both reliable and valid measure D. Neither reliable nor valid measure
+
+12. What type of measurement scale allows for the ranking of items but does not provide information about the distance between ranks? A. Nominal B. Ordinal C. Interval D. Ratio
+
+13. Which level of measurement describes variables with mutually exclusive attributes that have no logical order or ranking (e.g., religious affiliation or gender)? A. Nominal B. Ordinal C. Interval D. Ratio
