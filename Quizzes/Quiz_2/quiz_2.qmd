@@ -1,0 +1,68 @@
+---
+title: "Quiz 2 - February 9"
+format: pdf
+---
+
+## Instructions
+
+1. Please read each question carefully and answer to the best of your ability.
+2. Write your name here: _____________________________
+3. You may simplify to least common denominator and to the radical expression, $\sqrt{xxx}$, if necessary.
+
+
+## Question 1
+
+What is the median of the following set of numbers: 3, 7, 5, 9, 1?
+
+
+## Question 2
+
+What is the mean of the following set of numbers: 4, 8, 6, 10, 2?
+
+
+## Question 3
+
+What is the mode of the following set of numbers: 2, 4, 6, 4, 8, 2, 4?
+
+## Question 4
+
+What is the mode of the following set of numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9?
+
+## Question 5
+
+
+What is the median of the following set of numbers: 10, 20, 30, 40, 50, 60?
+
+## Question 6 
+
+What is the mode of the following set of numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2?
+
+## Question 7
+
+What is the mean of the following set of numbers: 5, 10, 15, 20, 25?
+
+## Question 8
+
+What is the median of the following set of numbers: 5, 10, 15, 20, 25?
+
+## Question 9
+
+What is the mode of the following set of numbers: 5, 10, 15, 20, 25?
+
+
+## Question 10
+
+What is the standard deviation of x if the variance of x is 100?
+
+## Question 11
+
+What is the variance of x if the standard deviation of x is 5?
+
+## Question 12
+
+- If the sum of squared deviations from the mean is 1000 and the number of observations is 11, what is the sample variance? 
+
+## Question 13
+
+From the question above, what is the sample standard deviation?
+
