@@ -1,0 +1,306 @@
+---
+title: "March 25: Polling Simulations"
+author: 
+  - name: Tom Hanna
+    id: th
+    orcid: 0000-0002-8054-0335
+    email: tlhanna@central.uh.edu
+    url: tomhanna.me
+    affiliation: 
+      - name: University of Houston
+        city: Houston
+        state: TX
+        url: uh.edu/class/political-science/
+license: CC BY-NC-SA 4.0
+copyright: 
+  holder: Tom Hanna
+  year: 2026
+date: today
+format:
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                incremental: true
+                theme: [default, custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        docx:
+                toc: true
+                number-sections: true
+                reference-doc: ../../word-template.docx
+        html:
+                theme: cosmo
+                style: custom.css
+                axe: true
+                self-contained: true
+                code-fold: false
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        pdf: 
+                toc: true
+                toc-depth: 2
+                toc-location: left
+                number-sections: true
+                fig_caption: true
+---
+      
+```{r setup}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+set.seed(123)
+
+true_types <- tibble(
+  type        = c("A_college_D", "B_noncollege_D",
+                  "C_college_R", "D_noncollege_R"),
+  pop_share   = c(0.25, 0.25, 0.25, 0.25),
+  dem_support = c(0.90, 0.80, 0.10, 0.20)
+)
+
+true_dem_share <- sum(true_types$pop_share * true_types$dem_support)
+
+simulate_poll <- function(N = 800, name = "Poll", select_weights) {
+  df <- true_types %>%
+    mutate(sel_w = select_weights[type],
+           prob  = pop_share * sel_w)
+  df$prob <- df$prob / sum(df$prob)
+
+  sampled_types <- sample(df$type, size = N, replace = TRUE, prob = df$prob)
+
+  poll <- tibble(type = sampled_types) %>%
+    left_join(true_types, by = "type") %>%
+    mutate(dem_vote = rbinom(n(), 1, dem_support))
+
+  est <- mean(poll$dem_vote)
+
+  list(est = est)
+}
+
+w_poll1 <- c(
+  A_college_D    = 1.2,
+  B_noncollege_D = 0.7,
+  C_college_R    = 1.2,
+  D_noncollege_R = 0.7
+)
+
+w_poll2 <- c(
+  A_college_D    = 0.7,
+  B_noncollege_D = 1.2,
+  C_college_R    = 0.7,
+  D_noncollege_R = 1.2
+)
+
+w_poll3 <- w_poll1  # same bias as pollster 1
+
+
+```
+
+## 2. Function to simulate a single poll
+
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 4
+
+R <- 500  # number of hypothetical repeated polls
+
+sim_P1 <- tibble(
+  rep      = 1:R,
+  est_P1   = map_dbl(rep, ~ simulate_poll(800, "P1", w_poll1)$est)
+)
+
+ggplot(sim_P1, aes(y = est_P1, x = "P1")) +
+  geom_boxplot(width = 0.3, fill = "steelblue", alpha = 0.7) +
+  geom_hline(yintercept = true_dem_share,
+             linetype = "dashed", color = "red") +
+  labs(
+    title = "Sampling distribution for one biased pollster (P1)",
+    x     = NULL,
+    y     = "Estimated Dem two-party share"
+  ) +
+  theme_minimal(base_size = 14)
+
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 4
+
+R <- 500  # number of hypothetical repeated polls
+
+sim_P1 <- tibble(
+  rep      = 1:R,
+  est_P1   = map_dbl(rep, ~ simulate_poll(800, "P1", w_poll1)$est)
+)
+
+ggplot(sim_P1, aes(y = est_P1, x = "P1")) +
+  geom_boxplot(width = 0.3, fill = "steelblue", alpha = 0.7) +
+  geom_hline(yintercept = true_dem_share,
+             linetype = "dashed", color = "red") +
+  labs(
+    title = "Sampling distribution for one biased pollster (P1)",
+    x     = NULL,
+    y     = "Estimated Dem two-party share"
+  ) +
+  theme_minimal(base_size = 14)
+
+
+```
+
+## 3. Three pollsters: opposite vs. shared bias
+
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-align: "center"
+
+
+
+# Pollster 1: over-samples college types, under-samples noncollege
+w_poll1 <- c(
+  A_college_D    = 1.2,
+  B_noncollege_D = 0.7,
+  C_college_R    = 1.2,
+  D_noncollege_R = 0.7
+)
+
+# Pollster 2: mirror image of pollster 1
+w_poll2 <- c(
+  A_college_D    = 0.7,
+  B_noncollege_D = 1.2,
+  C_college_R    = 0.7,
+  D_noncollege_R = 1.2
+)
+
+```
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 4
+
+R <- 500
+
+sim_pairs <- tibble(
+  rep       = 1:R,
+  est_P1    = map_dbl(rep, ~ simulate_poll(800, "P1", w_poll1)$est),
+  est_P2    = map_dbl(rep, ~ simulate_poll(800, "P2", w_poll2)$est),
+  est_P3    = map_dbl(rep, ~ simulate_poll(800, "P3", w_poll3)$est)
+) %>%
+  mutate(
+    avg_P1P2 = (est_P1 + est_P2) / 2,  # opposite biases
+    avg_P1P3 = (est_P1 + est_P3) / 2   # shared bias
+  )
+
+sim_long <- sim_pairs %>%
+  select(avg_P1P2, avg_P1P3) %>%
+  pivot_longer(everything(),
+               names_to = "combo",
+               values_to = "estimate") %>%
+  mutate(combo = recode(combo,
+                        avg_P1P2 = "Average P1 & P2\n(opposite bias)",
+                        avg_P1P3 = "Average P1 & P3\n(shared bias)"))
+
+ggplot(sim_long, aes(x = combo, y = estimate)) +
+  geom_boxplot(width = 0.5, fill = "tan", alpha = 0.8) +
+  geom_hline(yintercept = true_dem_share,
+             linetype = "dashed", color = "red") +
+  labs(
+    title = "Sampling distributions for averages: opposite vs shared bias",
+    x     = NULL,
+    y     = "Estimated Dem two-party share"
+  ) +
+  theme_minimal(base_size = 14)
+
+
+```
+
+
+## 4. Simulate multiple polls per pollster
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-align: "center"
+
+sim_list <- list()
+
+for (k in 1:10) {
+  sim_list[[paste0("P1_", k)]] <- simulate_poll(800, paste0("P1_", k), w_poll1)
+  sim_list[[paste0("P2_", k)]] <- simulate_poll(800, paste0("P2_", k), w_poll2)
+  sim_list[[paste0("P3_", k)]] <- simulate_poll(800, paste0("P3_", k), w_poll3)
+}
+
+# Collect estimates
+ests <- bind_rows(lapply(names(sim_list), function(nm) {
+  tibble(
+    poll     = nm,
+    pollster = substr(nm, 1, 2),
+    est_dem  = sim_list[[nm]]$est
+  )
+}))
+
+# Composition deviations
+comp <- bind_rows(lapply(names(sim_list), function(nm) {
+  sim_list[[nm]]$comp %>% mutate(poll_full = nm)
+}))
+
+ggplot(ests, aes(x = pollster, y = est_dem)) +
+  geom_boxplot() +
+  geom_hline(yintercept = true_dem_share,
+             linetype = "dashed", color = "red") +
+  labs(
+    title = "Poll estimates by pollster",
+    y     = "Estimated Dem two-party share",
+    x     = "Pollster"
+  )
+
+```
+
+
+## 6. Plot: composition deviations for a few polls
+
+This makes the distributions of voter types explicit.
+
+```{r}
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-align: "center"
+
+
+sel_polls <- c("P1_1", "P2_1", "P3_1")
+
+comp_plot <- comp %>%
+  filter(poll_full %in% sel_polls) %>%
+  mutate(pollster = substr(poll_full, 1, 2))
+
+ggplot(comp_plot, aes(x = type, y = diff_share, fill = pollster)) +
+  geom_col(position = position_dodge()) +
+  geom_hline(yintercept = 0) +
+  labs(
+    title = "Sample minus population share by voter type",
+    y     = "Sample share - population share",
+    x     = "Voter type"
+  ) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+
+```
+

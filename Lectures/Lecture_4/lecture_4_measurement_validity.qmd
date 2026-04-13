@@ -5,6 +5,10 @@ title: |
 date: February 5, 2026
 author: "Tom Hanna"
 format: 
+        docx:
+                toc: true
+                number-sections: true
+                reference-doc: ../../word-template.docx        
         html:
                 theme: cosmo
                 style: custom.css

@@ -4,6 +4,15 @@ subtitle: "Mean, Median, Mode, Standard Deviation"
 date: February 5, 2026
 author: "Tom Hanna"
 format: 
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                incremental: true
+                theme: [default, custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
         typst:
                 pdf-standard: ua-1  # PDF/UA-1 compliance
                 axe: true
@@ -14,15 +23,6 @@ format:
                 self-contained: true
                 code-fold: false
                 logo: logo.png
-                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
-        revealjs:
-                self-contained: true
-                code-fold: true
-                code-summary: "Show the code"
-                transition: convex
-                incremental: true
-                theme: [default, custom.scss]
-                logo: ../logo.png
                 footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
 editor: source
 ---

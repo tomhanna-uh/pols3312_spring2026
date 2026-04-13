@@ -1,0 +1,519 @@
+---
+title: "Lecture 10: Hypothesis Testing — Null, Alternative, P-Values"
+author: 
+  - name: Tom Hanna
+    id: th
+    orcid: 0000-0002-8054-0335
+    email: tlhanna@central.uh.edu
+    url: tomhanna.me
+    affiliation: 
+      - name: University of Houston
+        city: Houston
+        state: TX
+        url: uh.edu/class/political-science/
+license: CC BY-NC-SA 4.0
+copyright: 
+  holder: Tom Hanna
+  year: 2026
+date: today
+format:
+        docx:
+                toc: true
+                number-sections: true
+                reference-doc: ../../word-template.docx
+        revealjs:
+                self-contained: true
+                code-fold: true
+                code-summary: "Show the code"
+                transition: convex
+                incremental: true
+                theme: [default, ../custom.scss]
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        html:
+                theme: cosmo
+                style: custom.css
+                axe: true
+                self-contained: true
+                code-fold: false
+                logo: ../logo.png
+                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+        pdf: 
+                toc: true
+                toc-depth: 2
+                toc-location: left
+                number-sections: true
+                fig_caption: true
+---
+
+# Agenda and Announcements
+
+- Today
+
+        - **Topic 9: Hypothesis Testing — Null, Alternative, P-Values**
+        - t-tests and Chi-Squared Tests: Simple Examples
+        - Top Hat Quiz
+
+- Next Class
+
+        - Topic 12: Experimental Design Internal Validity & Controls.
+        - We will do two articles next week and I will announce them Wednesday
+
+
+# The Story of the t-Test
+
+## William Sealy Gossett
+
+::: {.callout-tip}
+## Watch First (~5 min)
+
+:::
+
+[![Watch: Gossett and the t-test](https://img.youtube.com/vi/U9Wr7VEPGXA/maxresdefault.jpg)](https://www.youtube.com/watch?v=U9Wr7VEPGXA)
+
+
+## Key Takeaways from Gossett
+
+- Worked at **Guinness Brewery** — needed to test small samples of barley
+- Published under the pseudonym **"Student"** (company secrecy rules)
+- The test is formally called **Student's t-test**
+- Problem he solved: **small samples** don't follow the normal distribution exactly
+- The **t-distribution** is wider/flatter than the normal — it accounts for extra uncertainty with small n
+- As sample size grows, the t-distribution approaches the normal distribution
+
+
+
+# Review: Connecting the Dots
+
+## Where We've Been
+
+- **Lecture 5:** Descriptive statistics — mean, variance, standard deviation
+- **Lecture 8:** Sampling distributions, Central Limit Theorem, Law of Large Numbers
+- **Lecture 9:** Confidence intervals — the range of plausible values for a parameter
+
+## The Bridge to Hypothesis Testing
+
+- A **confidence interval** tells us: *"The true parameter is probably in this range"*
+- A **hypothesis test** answers: *"Is this relationship real, or just random noise?"*
+- Both rely on the same machinery: 
+        - Sample statistics as estimators of population parameters
+        - Probability distributions to quantify uncertainty
+        - The 68-95-99.7 rule and critical values
+
+
+
+# Null and Alternative Hypotheses
+
+## What Is a Hypothesis?
+
+- A **falsifiable statement** about what we believe based on our theory
+- In statistics, we always test two competing claims simultaneously
+
+## The Two Hypotheses
+
+| Hypothesis | Symbol | Meaning |
+|---|---|---|
+| **Null hypothesis** | H~0~ | No relationship; any pattern is random chance |
+| **Alternative hypothesis** | H~1~ or H~a~ | A real relationship exists |
+
+- We **start** from the assumption that H~0~ is true
+- Our goal: find evidence strong enough to **reject** H~0~
+
+## Examples in Political Science
+
+- H~0~: Democracy has **no effect** on economic growth
+- H~1~: Democracies have **higher** economic growth than autocracies
+
+---
+
+- H~0~: Gender and party identification are **independent** (unrelated)
+- H~1~: Gender and party identification are **not independent**
+
+## Important Reminder from Last Lecture
+
+**If we reject H~0~, does that mean H~1~ is definitely true?**
+
+. . .
+
+**NO!**
+
+- Rejecting H~0~ means: *there is strong evidence that H~1~ is approximately true*
+- We are working within a probability framework — we are never 100% certain
+- We may be wrong — that's what Type I and Type II errors are about
+
+
+
+# The P-Value and Alpha Level
+
+## What Is a P-Value?
+
+- The **p-value** is the probability of observing a result **at least this extreme** if H~0~ were true
+- A *small* p-value means: *"It would be very unlikely to see this pattern by random chance alone"*
+
+::: {.callout-warning}
+## Common Misconception
+The p-value is **NOT** the probability that H~0~ is true.  
+It is the probability of the **data** given that H~0~ is true.
+:::
+
+## The Alpha Level (α)
+
+- **α (alpha)** is our pre-chosen threshold — the maximum p-value at which we reject H~0~
+- In social sciences: **α = .05** is the standard
+- This means we are willing to be wrong **1 time in 20** (5%)
+- Sometimes researchers use α = .01 (1%) or α = .10 (10%)
+
+## The Decision Rule
+
+$$\text{If } p < \alpha \text{, reject } H_0$$
+
+. . .
+
+$$\text{If } p \geq \alpha \text{, fail to reject } H_0$$
+
+::: {.callout-note}
+## Why "Fail to Reject" and not "Accept"?
+We never **prove** H~0~ is true. We simply lack sufficient evidence to reject it.  
+Absence of evidence is not evidence of absence.
+:::
+
+## Why Does p < .05 Make Sense? {.smaller}
+
+- If H~0~ is true and we ran this study 100 times, we'd expect results this extreme **5 times or fewer** just by chance
+- When p < .05, the result would happen **fewer than 1 in 20 times** by random chance
+- That's unlikely enough that we conclude: *"This is probably a real pattern, not noise"*
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 3.5
+
+library(ggplot2)
+
+x <- seq(-4, 4, length.out = 1000)
+y <- dnorm(x)
+df <- data.frame(x = x, y = y)
+
+ggplot(df, aes(x, y)) +
+  geom_line(linewidth = 1.2, color = "#1a237e") +
+  geom_area(data = subset(df, x <= -1.96), aes(x, y), fill = "#c62828", alpha = 0.6) +
+  geom_area(data = subset(df, x >= 1.96), aes(x, y), fill = "#c62828", alpha = 0.6) +
+  annotate("text", x = -2.8, y = 0.06, label = "2.5%", color = "#c62828", fontface = "bold", size = 4) +
+  annotate("text", x = 2.8, y = 0.06, label = "2.5%", color = "#c62828", fontface = "bold", size = 4) +
+  annotate("text", x = 0, y = 0.22, label = "95% — Fail to Reject H\u2080", color = "#1a237e", size = 4) +
+  geom_vline(xintercept = c(-1.96, 1.96), linetype = "dashed", color = "#c62828") +
+  annotate("text", x = -1.96, y = 0.42, label = "-1.96", color = "#c62828", size = 3.5) +
+  annotate("text", x = 1.96, y = 0.42, label = "+1.96", color = "#c62828", size = 3.5) +
+  labs(title = "Rejection Regions at α = .05 (Two-Tailed Test)",
+       x = "Test Statistic (z or t)", y = "Density") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+```
+
+## The Critical Value Connection
+
+- Recall from Lecture 8: Z ≥ 1.96 corresponds to p ≤ .05 (two-tailed)
+- For a t-test: the critical t-value depends on **degrees of freedom** (sample size)
+- **Larger test statistic = smaller p-value = stronger evidence against H~0~**
+- When the test statistic exceeds the critical value, the p-value is below α
+
+
+
+# The t-Test
+
+## What Is a t-Test?
+
+- Tests whether a **mean** (or difference in means) is statistically significant
+- Uses the **t-distribution** (Gossett's contribution!) which accounts for small sample uncertainty
+- When n is large (≥ 30), the t-distribution ≈ normal distribution
+
+## When Do You Use a t-Test?
+
+| Situation | Test Type |
+|---|---|
+| One group vs. a known value | One-sample t-test |
+| Two independent groups | Independent samples t-test |
+| Same group measured twice | Paired samples t-test |
+
+::: {.callout-tip}
+**Key requirement:** The dependent variable (DV) must be **continuous** (interval or ratio level)
+:::
+
+## t-Test Formula
+
+The t-statistic for comparing two independent groups:
+
+$$t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
+
+- $\bar{x}_1, \bar{x}_2$ = sample means of the two groups
+- $s_p$ = pooled standard deviation
+- $n_1, n_2$ = sample sizes
+
+**As consumers:** You will read the t-statistic and p-value from software output — you will not calculate this by hand in most research contexts.
+
+## Political Science Example: t-Test
+
+**Research Question:** Do democracies have higher GDP per capita than autocracies?
+
+- **H~0~:** Mean GDP per capita is the **same** in democracies and autocracies
+- **H~1~:** Mean GDP per capita is **different** (or higher) in democracies
+
+::: {.callout-note}
+This is a real question in comparative politics — the relationship between regime type and economic development has been studied extensively.
+:::
+
+## t-Test in R {.smaller}
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-fold: false
+
+# Simulated data: GDP per capita (thousands USD) by regime type
+set.seed(42)
+democracies  <- c(28, 35, 41, 22, 55, 47, 38, 30, 52, 44,
+                  29, 61, 37, 49, 33, 58, 26, 43, 51, 36)
+autocracies  <- c(12, 18, 9, 25, 15, 7, 21, 11, 19, 14,
+                  8, 23, 16, 10, 27, 13, 20, 6, 17, 22)
+
+# Run independent samples t-test
+t.test(democracies, autocracies, alternative = "two.sided", var.equal = FALSE)
+```
+
+## Reading the t-Test Output
+
+When you see t-test output, look for:
+
+- **t** = the test statistic (how many standard errors the difference is from zero)
+- **df** = degrees of freedom (related to sample size)
+- **p-value** = probability of this difference by chance if H~0~ is true
+- **95% confidence interval** = plausible range for the true difference in means
+
+::: {.callout-important}
+## Decision
+If **p < .05**: Reject H~0~ → Evidence supports a real difference between groups  
+If **p ≥ .05**: Fail to reject H~0~ → Insufficient evidence of a difference
+:::
+
+
+
+# The Chi-Squared Test
+
+## What Is a Chi-Squared (χ²) Test?
+
+- Tests whether two **categorical variables** are **independent** of each other
+- Uses the χ² distribution (we saw this in Lecture 9 for variance CIs)
+- Compares **observed frequencies** to **expected frequencies** (what we'd expect if the variables were unrelated)
+
+## When Do You Use χ²?
+
+- Both variables are **categorical** (nominal or ordinal)
+- You have a **contingency table** (cross-tabulation)
+- Common in survey-based political science research
+
+::: {.callout-tip}
+**Examples:** Party ID × Gender, Vote choice × Education level, Region × Policy opinion
+:::
+
+## The χ² Formula
+
+$$\chi^2 = \sum \frac{(O - E)^2}{E}$$
+
+- $O$ = **observed** frequency in each cell
+- $E$ = **expected** frequency if the variables were independent
+- Larger χ² = greater deviation from independence = stronger evidence against H~0~
+
+**As consumers:** Again, software calculates this. Your job is to interpret the test statistic and p-value.
+
+## Political Science Example: χ² Test
+
+**Research Question:** Is party identification independent of gender?
+
+- **H~0~:** Party ID and gender are **independent** (no relationship)
+- **H~1~:** Party ID and gender are **not independent** (a relationship exists)
+
+::: {.callout-note}
+The "gender gap" in political party affiliation is one of the most studied phenomena in American political behavior.
+:::
+
+## χ² Test in R {.smaller}
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-fold: false
+
+# Contingency table: Party ID by Gender (simulated survey data, n = 300)
+party_gender <- matrix(
+  c(65, 55,   
+    40, 60,   
+    30, 50),  
+  nrow = 3,
+  byrow = TRUE,
+  dimnames = list(
+    Party = c("Democrat", "Republican", "Independent"),
+    Gender = c("Women", "Men")
+  )
+)
+
+# Display the contingency table
+print(party_gender)
+
+# Run chi-squared test
+chisq.test(party_gender)
+```
+
+## Reading the χ² Output
+
+When you see chi-squared output, look for:
+
+- **χ²** (X-squared) = the test statistic (sum of squared deviations from expected)
+- **df** = degrees of freedom = (rows - 1) × (columns - 1)
+- **p-value** = probability of this pattern if the variables were truly independent
+
+::: {.callout-important}
+## Decision
+If **p < .05**: Reject H~0~ → Evidence of a relationship between the two categorical variables  
+If **p ≥ .05**: Fail to reject H~0~ → Insufficient evidence of a relationship
+:::
+
+## Visualizing the χ² Test Result {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 3.8
+
+library(ggplot2)
+
+df_long <- data.frame(
+  Party  = rep(c("Democrat", "Republican", "Independent"), each = 2),
+  Gender = rep(c("Women", "Men"), times = 3),
+  Count  = c(65, 55, 40, 60, 30, 50)
+)
+
+ggplot(df_long, aes(x = Party, y = Count, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.65) +
+  scale_fill_manual(values = c("Women" = "#7B1FA2", "Men" = "#1565C0")) +
+  labs(title = "Party Identification by Gender (Simulated Data)",
+       x = "Party", y = "Count", fill = "Gender") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5),
+        legend.position = "top")
+```
+
+
+
+# Comparing the Two Tests
+
+## t-Test vs. Chi-Squared: At a Glance
+
+| Feature | t-Test | χ² Test |
+|---|---|---|
+| **What it tests** | Difference in means | Independence of categorical variables |
+| **Variable type (DV)** | Continuous (interval/ratio) | Categorical (nominal/ordinal) |
+| **Variable type (IV)** | Categorical (2 groups) | Categorical |
+| **Distribution used** | t-distribution | χ² distribution |
+| **Key statistic** | t | χ² |
+| **Decision rule** | p < α → reject H~0~ | p < α → reject H~0~ |
+
+## Choosing the Right Test {.smaller}
+
+```{r}
+#| eval: true
+#| echo: false
+
+decision_guide <- data.frame(
+  `Research Question` = c(
+    "Is avg. GDP different between regime types?",
+    "Is vote choice related to education level?",
+    "Does support for policy differ by region?",
+    "Is income related to media consumption?"
+  ),
+  `DV Type` = c("Continuous", "Categorical", "Continuous", "Continuous"),
+  `IV Type` = c("Categorical (2 groups)", "Categorical", "Categorical", "Categorical"),
+  `Test` = c("t-Test", "Chi-Squared", "t-Test / ANOVA", "t-Test / Regression"),
+  check.names = FALSE
+)
+
+knitr::kable(decision_guide, caption = "Quick Test Selection Guide")
+```
+
+
+
+# Putting It All Together
+
+## The Full Hypothesis Testing Workflow
+
+1. **State** H~0~ and H~1~
+2. **Choose** α (usually .05 in social science)
+3. **Select** the appropriate test (t-test, χ², etc.)
+4. **Calculate** the test statistic (software does this)
+5. **Find** the p-value
+6. **Decision:** Is p < α?
+        - **Yes → Reject H~0~** — evidence supports the alternative
+        - **No → Fail to reject H~0~** — insufficient evidence
+
+## What p < .05 Really Means
+
+::: {.callout-important}
+## The Intuition
+If p = .03, it means: *"If there were truly no relationship (H~0~ true), we would observe a result this extreme only 3 times out of 100 by random chance."*  
+That's unlikely enough that we conclude the relationship is probably real.
+:::
+
+## Common Mistakes to Avoid
+
+- ❌ "p = .03 means there is a 97% chance H~1~ is true" — **Wrong**
+- ❌ "p = .06 means there is no relationship" — **Wrong** (just insufficient evidence)
+- ❌ "Statistical significance = practical importance" — **Not necessarily!**
+- ✅ p < .05 means: the result is unlikely due to random chance alone
+- ✅ Always report **effect size** alongside p-values in real research
+
+## Alpha = .05: A Social Science Convention
+
+- The .05 threshold is a **convention**, not a law of nature
+- Ronald Fisher originally proposed it as a rough guideline
+- Social sciences typically use **α = .05**
+- Some fields use stricter thresholds (physics: α = 5 × 10⁻⁷ for particle discovery)
+- The key: **choose α before you collect data**
+
+
+
+# Summary
+
+## Key Concepts from Today
+
+- **H~0~ (null):** No relationship; pattern is due to random chance
+- **H~1~ (alternative):** A real relationship exists
+- **p-value:** Probability of the data *if* H~0~ is true
+- **α = .05:** Our threshold — willing to be wrong 1 in 20 times
+- **p < α → Reject H~0~** — the relationship is unlikely due to chance
+- **t-test:** Tests differences in means (continuous DV)
+- **χ² test:** Tests independence of categorical variables
+
+## As Consumers of Statistics
+
+When you read political science research, you will see:
+
+- "t(38) = 3.24, p = .003" → **Reject H~0~**, statistically significant
+- "χ²(2) = 9.47, p = .009" → **Reject H~0~**, variables are not independent
+- "p = .42" → **Fail to reject H~0~**, no significant relationship found
+
+**Your job:** Understand what these mean, evaluate whether the test was appropriate, and assess whether the conclusions follow from the results.
+
+
+
+# Authorship, License, Credits
+
+- Author: Tom Hanna
+
+- Website: <a href="https://tom-hanna.org/">tomhanna.me</a>
+
+- Gossett video: [William Sealy Gossett and the t-test](https://www.youtube.com/watch?v=U9Wr7VEPGXA)
+
+- License: This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">![Creative Commons License](creative_commons_license.png)</a>
