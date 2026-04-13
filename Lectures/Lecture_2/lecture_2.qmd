@@ -5,6 +5,7 @@ title: |
 date: today
 author: "Tom Hanna"
 format: 
+        docx: default
         html:
                 theme: cosmo
                 style: custom.css

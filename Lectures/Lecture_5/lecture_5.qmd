@@ -4,6 +4,7 @@ subtitle: "Mean, Median, Mode, Standard Deviation"
 date: today
 author: "Tom Hanna"
 format: 
+        docx: default
         revealjs:
                 self-contained: true
                 code-fold: true

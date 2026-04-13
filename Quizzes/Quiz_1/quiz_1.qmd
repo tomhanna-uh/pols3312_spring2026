@@ -1,6 +1,8 @@
 ---
 title: "Quiz 1 - February 4"
-format: html
+format:
+  html: default
+  docx: default
 ---
 
 ## Instructions

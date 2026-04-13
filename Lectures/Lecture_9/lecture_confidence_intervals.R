@@ -28,7 +28,6 @@ footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
 docx:
         toc: true
 number-sections: true
-reference-doc: ../../lab-template.docx
 pdf: 
         toc: true
 toc-depth: 2
