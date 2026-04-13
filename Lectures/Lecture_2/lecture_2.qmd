@@ -2,7 +2,7 @@
 title: |
     | Lecture 2 - Reading a Scientific Article
     | Argument, Data, and Politics: POLS 3312
-date: January 28, 2027
+date: today
 author: "Tom Hanna"
 format: 
         html:

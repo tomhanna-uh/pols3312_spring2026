@@ -2,7 +2,7 @@
 title: |
     | Lecture 3 - The Logic of Research Design
     | Argument, Data, and Politics: POLS 3312
-date: January 31, 2027
+date: today
 author: "Tom Hanna"
 format: 
         docx:
