@@ -1,30 +1,50 @@
 ---
 title: "Lecture 5: Descriptive Statistics"
 subtitle: "Mean, Median, Mode, Standard Deviation"
+author:
+  - name: Tom Hanna
+    id: th
+    orcid: 0000-0002-8054-0335
+    email: tlhanna@central.uh.edu
+    url: tomhanna.me
+    affiliation:
+      - name: University of Houston
+        city: Houston
+        state: TX
+        url: uh.edu/class/political-science/
+license: CC BY-NC-SA 4.0
+copyright:
+  holder: Tom Hanna
+  year: 2026
 date: today
-author: "Tom Hanna"
-format: 
-        revealjs:
-                self-contained: true
-                code-fold: true
-                code-summary: "Show the code"
-                transition: convex
-                incremental: true
-                theme: [default, custom.scss]
-                logo: ../logo.png
-                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
-        typst:
-                pdf-standard: ua-1  # PDF/UA-1 compliance
-                axe: true
-        html:
-                theme: cosmo
-                style: custom.css
-                axe: true
-                self-contained: true
-                code-fold: false
-                logo: logo.png
-                footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
-editor: source
+format:
+  html:
+    theme: cosmo
+    style: custom.css
+    axe: true
+    self-contained: true
+    code-fold: false
+    logo: ../logo.png
+    footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+  revealjs:
+    self-contained: true
+    code-fold: true
+    code-summary: "Show the code"
+    transition: convex
+    incremental: true
+    theme: [default, ../custom.scss]
+    logo: ../logo.png
+    footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+  docx:
+    toc: true
+    number-sections: true
+    reference-doc: ../../word-template.docx
+  pdf:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    fig_caption: true
 ---
 
 ## Agenda
