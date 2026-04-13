@@ -1,7 +1,22 @@
 ---
-title: |
-    | Lecture 3 - The Logic of Research Design
-    | Argument, Data, and Politics: POLS 3312
+title: "| Lecture 3 - The Logic of Research Design
+| Argument, Data, and Politics: POLS 3312
+"
+author:
+  - name: Tom Hanna
+    id: th
+    orcid: 0000-0002-8054-0335
+    email: tlhanna@central.uh.edu
+    url: tomhanna.me
+    affiliation:
+      - name: University of Houston
+        city: Houston
+        state: TX
+        url: uh.edu/class/political-science/
+license: CC BY-NC-SA 4.0
+copyright:
+  holder: Tom Hanna
+  year: 2026
 date: today
 author: "Tom Hanna"
 format: 
