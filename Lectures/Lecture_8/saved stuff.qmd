@@ -15,7 +15,6 @@ license: CC BY-NC-SA 4.0
 copyright: 
   holder: Tom Hanna
   year: 2026
-date: today
 format:
   html:
     theme: cosmo
@@ -24,7 +23,7 @@ format:
     self-contained: true
     code-fold: false
     logo: ../logo.png
-    footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+    footer: "POLS3312, Instructor: Tom Hanna"
   revealjs:
     self-contained: true
     code-fold: true
@@ -33,11 +32,10 @@ format:
     incremental: true
     theme: [default, ../custom.scss]
     logo: ../logo.png
-    footer: "POLS3312, Spring 2026, Instructor: Tom Hanna"
+    footer: "POLS3312, Instructor: Tom Hanna"
   docx:
     toc: true
     number-sections: true
-    reference-doc: ../../word-template.docx
   pdf:
     toc: true
     toc-depth: 2
