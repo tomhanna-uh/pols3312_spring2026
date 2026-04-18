@@ -16,22 +16,22 @@ copyright:
   holder: Tom Hanna
   year: 2026
 format:
-  html:
-    theme: cosmo
-    style: custom.css
-    axe: true
-    self-contained: true
-    code-fold: false
-    logo: ../logo.png
-    footer: "POLS3312, Instructor: Tom Hanna"
   revealjs:
     self-contained: true
     code-fold: true
     code-summary: "Show the code"
     transition: convex
     incremental: true
-    theme: [default, custom.scss]
-    logo: ../logo.png
+    theme: [default, ../custom.scss]
+    logo: ../../assets/logo.png
+    footer: "POLS3312, Instructor: Tom Hanna"
+  html:
+    theme: cosmo
+    style: custom.css
+    axe: true
+    self-contained: true
+    code-fold: false
+    logo: ../../assets/logo.png
     footer: "POLS3312, Instructor: Tom Hanna"
   docx:
     toc: true
